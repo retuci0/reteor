@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "id": "addon-template",
+  "id": "reteor",
   "version": "${version}",
-  "name": "Addon Template",
-  "description": "An addon template for Meteor Client addons.",
+  "name": "Reteor",
+  "description": "Adds some missing shit.",
   "authors": [
-    "seasnail"
+    "retucio"
   ],
   "contact": {
-    "repo": "https://github.com/MeteorDevelopment/meteor-addon-template"
+    "repo": "https://github.com/retuci0/reteor"
   },
-  "icon": "assets/template/icon.png",
+  "icon": "assets/reteor/icon.png",
   "environment": "client",
   "entrypoints": {
     "meteor": [
-      "com.example.addon.AddonTemplate"
+      "net.retucio.reteor.Reteor"
     ]
   },
   "mixins": [
-    "addon-template.mixins.json"
+    "reteor.mixins.json"
   ],
   "custom": {
-    "meteor-client:color": "225,25,25"
+    "meteor-client:color": "9,24,235"
   },
   "depends": {
     "java": ">=21",

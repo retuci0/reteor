@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "net.retucio.reteor.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "EntityMixin",
+    "EntityRendererMixin",
+
+    "accessors.AbstractBlockAccessor",
+    "accessors.AnvilScreenAccessor",
+    "accessors.LivingEntityAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
