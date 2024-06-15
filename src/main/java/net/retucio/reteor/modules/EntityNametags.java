@@ -69,7 +69,7 @@ public class EntityNametags extends Module {
     private final Vector3d pos = new Vector3d();
 
     public EntityNametags() {
-        super(Reteor.CATEGORY, "entity-nametags", "Always renders entities' custom name labels, no matter whether your hovering it or not.");
+        super(Reteor.CATEGORY, "Entity Nametags", "Always renders entities' custom name labels, no matter whether your hovering it or not.");
     }
 
     @EventHandler

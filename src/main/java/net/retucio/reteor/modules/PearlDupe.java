@@ -22,7 +22,7 @@ public class PearlDupe extends Module {
     );
 
     public PearlDupe() {
-        super(Reteor.CATEGORY, "pearl-dupe", "Sends certain command after a teleport position packet is received.");
+        super(Reteor.CATEGORY, "Pearl Dupe", "Sends certain command after a teleport position packet is received.");
     }
 
     @EventHandler

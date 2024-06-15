@@ -18,7 +18,8 @@ public class HitboxDesync extends Module {
     private static final double MAGIC_OFFSET = 0.200009968835369999878673424677777777777761; // credits to mioclient
 
     public HitboxDesync() {
-        super(Reteor.CATEGORY, "hitbox-desync", "Slightly moves the player to desync it from its hitbox. Useful to avoid taking knockback.");
+        super(Reteor.CATEGORY, "Hitbox Desync", "Slightly moves the player to desync it from its hitbox." +
+            "You can use it to clip into blocks.");
     }
 
     @Override

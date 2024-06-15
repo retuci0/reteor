@@ -12,6 +12,7 @@ import meteordevelopment.meteorclient.settings.SettingGroup;
 import meteordevelopment.orbit.EventHandler;
 import meteordevelopment.meteorclient.systems.modules.Categories;
 import meteordevelopment.meteorclient.systems.modules.Module;
+import net.retucio.reteor.Reteor;
 import net.retucio.reteor.mixin.accessors.LivingEntityAccessor;
 
 public class JumpDelay extends Module {
@@ -28,7 +29,7 @@ public class JumpDelay extends Module {
     );
 
     public JumpDelay() {
-        super(Categories.Movement, "jump-delay", "Lets you customize the player's jumping cooldown.");
+        super(Reteor.CATEGORY, "Jump Delay", "Lets you customize the player's jumping cooldown.");
     }
 
     @EventHandler

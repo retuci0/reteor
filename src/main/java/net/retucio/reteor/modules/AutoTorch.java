@@ -104,7 +104,7 @@ public class AutoTorch extends Module {
     );
 
     public AutoTorch() {
-        super(Reteor.CATEGORY, "auto-torch", "What do you think this does moron");
+        super(Reteor.CATEGORY, "Auto Torch", "What do you think this does moron");
     }
 
     boolean showBox = false;

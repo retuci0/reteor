@@ -84,7 +84,7 @@ public class AnvilFont extends Module {
     );
 
     public AnvilFont() {
-        super(Categories.Misc, "anvil-font", "Lets you customize an item name's font while renaming it on an anvil");
+        super(Categories.Misc, "Anvil Fonts", "Lets you customize an item name's font while renaming it on an anvil");
     }
 
     @EventHandler

@@ -1,10 +1,12 @@
 package net.retucio.reteor;
 
 import meteordevelopment.meteorclient.events.world.TickEvent;
+import meteordevelopment.meteorclient.systems.hud.Hud;
 import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.orbit.EventHandler;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.metadata.ModMetadata;
+import net.retucio.reteor.hud.DeathHud;
 import net.retucio.reteor.modules.*;
 import meteordevelopment.meteorclient.utils.misc.Version;
 
@@ -40,6 +42,8 @@ public class Reteor extends MeteorAddon {
         VERSION = new Version(versionString);
 
         addModules();
+
+        Hud.get().register(DeathHud.INFO);
     }
 
     @Override
@@ -62,7 +66,6 @@ public class Reteor extends MeteorAddon {
         add(new AntiSpectator());
         add(new AnvilFont());
         add(new AutoTorch());
-        add(new DeathCoords());
         add(new Dolphin());
         add(new EntityDesync());
         add(new EntityNametags());
@@ -75,6 +78,7 @@ public class Reteor extends MeteorAddon {
         add(new PortalInvincibility());
         add(new ProjectileExploit());
         add(new Racist());
+        add(new StrongholdFinder());
     }
 
     private void add(Module module) {

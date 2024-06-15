@@ -16,7 +16,7 @@ import net.minecraft.network.packet.c2s.play.TeleportConfirmC2SPacket;
 public class PortalInvincibility extends Module {
 
     public PortalInvincibility() {
-        super(Reteor.CATEGORY, "portal-invincibility", "Cancels teleportation confirmation packets to make you stay in the portal, hence making you invincibile.");
+        super(Reteor.CATEGORY, "Portal Invincibility", "Cancels teleportation confirmation packets to make you stay in the portal, hence making you invincibile.");
     }
 
     @EventHandler

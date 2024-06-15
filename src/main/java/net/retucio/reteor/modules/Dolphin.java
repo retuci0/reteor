@@ -10,7 +10,7 @@ import net.retucio.reteor.Reteor;
 public class Dolphin extends Module {
 
     public Dolphin() {
-        super(Reteor.CATEGORY, "dolphin", "Makes you swim insanely fast.");
+        super(Reteor.CATEGORY, "Dolphin", "Makes you swim insanely fast.");
     }
 
     @Override

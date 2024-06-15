@@ -3,12 +3,16 @@
   "package": "net.retucio.reteor.mixin",
   "compatibilityLevel": "JAVA_21",
   "client": [
+    "EnderEyeMixin",
     "EntityMixin",
     "EntityRendererMixin",
 
     "accessors.AbstractBlockAccessor",
     "accessors.AnvilScreenAccessor",
-    "accessors.LivingEntityAccessor"
+    "accessors.LivingEntityAccessor",
+    "accessors.PlayerEntityAccessor",
+
+    "ThrowDataRetriever"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -60,7 +60,7 @@ public class FarThrow extends Module {
     );
 
     public FarThrow() {
-        super(Reteor.CATEGORY, "far-throw", "Launches throwable items further away.");
+        super(Reteor.CATEGORY, "Far Throw", "Launches projectiles further away.");
     }
 
     @EventHandler

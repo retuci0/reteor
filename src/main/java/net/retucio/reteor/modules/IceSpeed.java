@@ -5,6 +5,7 @@ package net.retucio.reteor.modules;
  * Copyright (c) Meteor Development.
  */
 
+import net.retucio.reteor.Reteor;
 import net.retucio.reteor.mixin.accessors.AbstractBlockAccessor;
 
 import meteordevelopment.meteorclient.events.world.TickEvent;
@@ -34,13 +35,22 @@ public class IceSpeed extends Module {
     );
 
     public IceSpeed() {
-        super(Categories.Movement, "ice-speed", "Modifies ice's slipperiness to make you speedy.");
+        super(Reteor.CATEGORY, "Ice Speed", "Modifies ice's slipperiness to make you speedy.");
     }
 
     @EventHandler
-    private void onPreTick(TickEvent.Post event) {
+    private void onTick(TickEvent.Post event) {
         if (mc.player == null) return;
-        setSlipperiness(slipperiness.get().floatValue());
+
+        try {
+            setSlipperiness(slipperiness.get().floatValue());
+        }
+
+        catch (IllegalAccessError e) {
+            info("Couldn't activate IceSpeed");
+            System.out.println(e.toString());
+            toggle();
+        }
     }
 
     @Override

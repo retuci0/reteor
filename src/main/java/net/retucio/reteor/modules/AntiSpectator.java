@@ -11,6 +11,7 @@ import meteordevelopment.meteorclient.settings.Setting;
 import meteordevelopment.meteorclient.settings.SettingGroup;
 import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.meteorclient.utils.Utils;
+import meteordevelopment.meteorclient.utils.entity.EntityUtils;
 import meteordevelopment.meteorclient.utils.render.NametagUtils;
 import meteordevelopment.meteorclient.utils.render.color.Color;
 import meteordevelopment.meteorclient.utils.render.color.SettingColor;
@@ -25,6 +26,8 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.GameMode;
 import net.retucio.reteor.Reteor;
 import org.joml.Vector3d;
+
+import java.util.Objects;
 
 public class AntiSpectator extends Module {
 
@@ -45,33 +48,61 @@ public class AntiSpectator extends Module {
         .build()
     );
 
+    Vector3d pos = new Vector3d();
+
     public AntiSpectator() {
-        super(Reteor.CATEGORY, "anti-spectator", "Reveals players on spectator mode.");
+        super(Reteor.CATEGORY, "Anti Spectator", "Reveals players on spectator mode.");
     }
 
     @EventHandler
-    private void onRender(Render3DEvent event) {
-        if (mc.world == null) return;
-
-        for (PlayerEntity player : mc.world.getPlayers()) {
-            if (!player.isInCreativeMode() && player.noClip && !player.isAttackable()) {
-                Box box = player.getBoundingBox();
-                event.renderer.box(box, sideColor.get(), lineColor.get(), ShapeMode.Both, 0);
-
-                info("SEPCTATOR MODE: "
-                    + player.getX() + " "
-                    + player.getY() + " "
-                    + player.getZ()
-                );
-            }
-
-
-//            if (player.isSpectator()) {
-//                event.renderer.box(player.getBoundingBox(), sideColor.get(), lineColor.get(), ShapeMode.Lines, 0);
-//                Box bb = new Box(player.getBlockPos());
-//                event.renderer.box(bb, sideColor.get(), lineColor.get(), ShapeMode.Both, 0);
-//                System.out.println(serverPlayer.interactionManager.getGameMode());
-//            }
+    private void onRender(Render2DEvent event) {
+        try {
+            if (mc.getNetworkHandler().getWorld() == null) return;
         }
+
+        catch (NullPointerException e) {
+            // empty catch block
+        }
+
+        for (PlayerEntity player : mc.getNetworkHandler().getWorld().getPlayers()) {
+            if (EntityUtils.getGameMode(player) == GameMode.SPECTATOR && player != mc.player) {
+
+                Utils.set(pos, player, event.tickDelta);
+                pos.add(0, player.getEyeHeight(player.getPose()) + 0.15, 0);
+
+                if (NametagUtils.to2D(pos, 1)) {
+                    if (player.getCustomName() != null) renderNametag(player.getCustomName().getString());
+                }
+//                Box box = player.getBoundingBox();
+//                event.renderer.box(box, sideColor.get(), lineColor.get(), ShapeMode.Both, 0);
+
+//                info("SEPCTATOR MODE: "
+//                    + player.getX() + " "
+//                    + player.getY() + " "
+//                    + player.getZ()
+//                );
+            }
+        }
+    }
+
+    private void renderNametag(String name) {
+        TextRenderer text = TextRenderer.get();
+
+        NametagUtils.begin(pos);
+        text.beginBig();
+
+        double w = text.getWidth(name);
+
+        double x = -w / 2;
+        double y = -text.getHeight();
+
+        Renderer2D.COLOR.begin();
+        Renderer2D.COLOR.quad(x - 1, y - 1, w + 2, text.getHeight() + 2, BACKGROUND);
+        Renderer2D.COLOR.render(null);
+
+        text.render(name, x, y, TEXT);
+
+        text.end();
+        NametagUtils.end();
     }
 }

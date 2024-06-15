@@ -28,7 +28,7 @@ public class GhostMode extends Module {
     );
 
     public GhostMode() {
-        super(Reteor.CATEGORY, "ghost-mode", "Allows you to keep playing after you die. Works on Forge, Fabric and Vanilla servers.");
+        super(Reteor.CATEGORY, "Ghost Mode", "Allows you to keep playing after you die. Works on Forge, Fabric and Vanilla servers.");
     }
 
     private boolean active = false;

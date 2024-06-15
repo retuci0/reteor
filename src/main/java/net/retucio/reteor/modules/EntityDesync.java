@@ -97,7 +97,7 @@ public class EntityDesync extends Module {
     private Entity originalRidingEntity;
 
     public EntityDesync() {
-        super(Reteor.CATEGORY, "entity-desync", "Dismounts you from an entity client-side");
+        super(Reteor.CATEGORY, "Entity Desync", "Dismounts you from an entity client-side");
     }
 
     @EventHandler

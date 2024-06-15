@@ -9,6 +9,7 @@ import meteordevelopment.orbit.EventHandler;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.mob.EndermanEntity;
+import net.retucio.reteor.Reteor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,7 @@ public class Racist extends Module {
     private final List<Entity> lookedEndermen = new ArrayList<>();
 
     public Racist() {
-        super(Categories.Player, "racist", "Detroit moment.");
+        super(Reteor.CATEGORY, "Racist", "Detroit moment.");
     }
 
     @EventHandler

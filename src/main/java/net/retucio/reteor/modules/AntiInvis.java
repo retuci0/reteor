@@ -8,6 +8,6 @@ import net.retucio.reteor.Reteor;
 public class AntiInvis extends Module {
 
     public AntiInvis() {
-        super(Reteor.CATEGORY, "anti-invis", "Renders invisible entities anyways.");
+        super(Reteor.CATEGORY, "Anti Invis", "Renders invisible entities anyways.");
     }
 }
